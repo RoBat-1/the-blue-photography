@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Blue Photography</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">📸 The Blue  Photography</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Just a hobby</h1>
+    <p>creating memories</p>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <h2>Dayrouna - Barhalioun</h2>
+    <div class="grid">
+      <img src="DSC_0467.JPG" alt="Gallery Photo" />
+      <img src="DSC_0468.JPG" alt="Gallery Photo" />
+      <img src="DSC_0469.JPG" alt="Gallery Photo" />
+      <img src="DSC_0470.JPG" alt="Gallery Photo" />
+      <img src="DSC_0471.JPG" alt="Gallery Photo" />
+      <img src="DSC_0472.JPG" alt="Gallery Photo" />
+      <img src="DSC_0473.JPG" alt="Gallery Photo" />
+      <img src="DSC_0474.JPG" alt="Gallery Photo" />
+      <img src="DSC_0475.JPG" alt="Gallery Photo" />
+      <img src="DSC_0476.JPG" alt="Gallery Photo" />
+      <img src="DSC_0477.JPG" alt="Gallery Photo" />
+      <img src="DSC_0478.JPG" alt="Gallery Photo" />
+      <img src="DSC_0479.JPG" alt="Gallery Photo" />
+      <img src="DSC_0480.JPG" alt="Gallery Photo" />
+      <img src="DSC_0481.JPG" alt="Gallery Photo" />
+      <img src="DSC_0482.JPG" alt="Gallery Photo" />
+      <img src="DSC_0483.JPG" alt="Gallery Photo" />
+      <img src="DSC_0484.JPG" alt="Gallery Photo" />
+      <img src="DSC_0485.JPG" alt="Gallery Photo" />
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: rolandalalam@gmail.com</p>
+  </section>
+
+  <div id="lightbox" class="lightbox">
+    <img src="" alt="Preview" />
+  </div>
+<style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: #111;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header .logo {
+  font-size: 1.5em;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.hero {
+  height: 80vh;
+  background: url('DSC_0479.JPG') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.gallery {
+  padding: 60px 10%;
+  background-color: #f5f5f5;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+}
+
+.contact {
+  padding: 40px 10%;
+  text-align: center;
+  background: #222;
+  color: white;
+}
+
+/* Lightbox styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 1000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+</style>
+  <script >
+    // Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = lightbox.querySelector('img');
+const images = document.querySelectorAll('.grid img');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImage.src = img.src;
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+  </script>
+</body>
+</html>
